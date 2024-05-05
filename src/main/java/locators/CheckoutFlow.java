@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,17 +15,17 @@ import java.sql.Statement;
 public class CheckoutFlow {
     public static void main(String[] args) throws InterruptedException {
 
-
+/*
         System.setProperty("webdriver.chrome.driver", "/Users/dineshchandgeetharavichandran/Desktop/Dinesh/Selenium/Drivers/chromedriver");
 
-        ChromeOptions options = new ChromeOptions();
-        WebDriver driver = new ChromeDriver(options);
+        ChromeOptions options = new ChromeOptions();*/
+        WebDriver driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
 
-        User user = getCredentials();
+        //User user = getCredentials();
 
-        driver.findElement(By.cssSelector("input[placeholder='Username']")).sendKeys(user.getUserName());
-        driver.findElement(By.cssSelector("input[placeholder='Password']")).sendKeys(user.getPassword());
+        driver.findElement(By.cssSelector("input[placeholder='Username']")).sendKeys("standard_user");
+        driver.findElement(By.cssSelector("input[placeholder='Password']")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
         Thread.sleep(3000);
         String text = driver.findElement(By.xpath("//span[@data-test='title']")).getText();
@@ -66,9 +67,11 @@ public class CheckoutFlow {
         System.out.println("shippingInfo " + shippingInfo);
         System.out.println("totalPayment " + totalPayment);
 
-        if (inventoryPrice.equalsIgnoreCase(inventoryPriceSummary)) {
+        /*if (inventoryPrice.equalsIgnoreCase(inventoryPriceSummary)) {
             System.out.println("checkout flow success");
-        }
+        }*/
+
+        Assert.assertEquals(inventoryPrice, inventoryPriceSummary);
 
 
         //click finish button

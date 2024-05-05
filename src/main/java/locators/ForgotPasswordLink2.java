@@ -33,6 +33,8 @@ public class ForgotPasswordLink2 {
 
         String pwd = driver.findElement(By.cssSelector(".infoMsg")).getText();
         String pwd1 = driver.findElement(By.cssSelector("form p")).getText();
+        //String pwd1 = driver.findElement(By.cssSelector("p[class='infoMsg']")).getText();
+        //String pwd1 = driver.findElement(By.cssSelector("//p[@class='infoMsg']")).getText();
         System.out.println("pwd is "+pwd);
         System.out.println("pwd 1 is "+pwd1);
     }
