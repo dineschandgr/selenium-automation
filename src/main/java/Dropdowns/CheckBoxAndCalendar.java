@@ -19,26 +19,34 @@ public class CheckBoxAndCalendar {
         WebDriver driver = new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 
+        boolean radioSelected = driver.findElement(By.cssSelector("input[id='ctl00_mainContent_rbtnl_Trip_1']")).isSelected();
+
+        Assert.assertFalse(radioSelected);
+
+        driver.findElement(By.cssSelector("input[id='ctl00_mainContent_rbtnl_Trip_1']")).click();
+        radioSelected = driver.findElement(By.cssSelector("input[id='ctl00_mainContent_rbtnl_Trip_1']")).isSelected();
+        Assert.assertTrue(radioSelected);
+
         driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
         driver.findElement(By.xpath("//a[@value='BLR']")).click();
 
-        //driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_originStation1_CTNR']//a[@value='BLR']")).click();
-
         Thread.sleep(2000);
-
-        //hard code by index
-        //driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click();
-
-        //using parent and child xpath
-
 
         driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='MAA']")).click();
 
-        //driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight")).click();
-
         driver.findElement(By.name("ctl00$mainContent$view_date1")).click();
 
+        Thread.sleep(3000);
 
+        driver.findElement(By.xpath("//*[@class='ui-datepicker-calendar']//td[@data-month='4']//a[text()='8']"))
+                .click();
+
+        Thread.sleep(2000);
+
+        driver.findElement(By.name("ctl00$mainContent$view_date2")).click();
+
+        driver.findElement(By.xpath("//*[@class='ui-datepicker-calendar']//td[@data-month='5']//a[text()='12']"))
+                        .click();
 
         List<WebElement> dates = driver.findElements(By.xpath("//*[@class='ui-datepicker-calendar'] /a"));
         System.out.println("dates is "+dates.size());
@@ -52,7 +60,7 @@ public class CheckBoxAndCalendar {
 
 
 
-        boolean checkboxSelected = driver.findElement(By.cssSelector("input[id*='ctl00_mainContent_chk_SeniorCitizenDiscount']")).isSelected();
+        boolean checkboxSelected = driver.findElement(By.cssSelector("input[id='ctl00_mainContent_chk_SeniorCitizenDiscount']")).isSelected();
 
         Assert.assertFalse(checkboxSelected);
 
@@ -60,7 +68,13 @@ public class CheckBoxAndCalendar {
         checkboxSelected = driver.findElement(By.cssSelector("input[id*='ctl00_mainContent_chk_SeniorCitizenDiscount']")).isSelected();
         Assert.assertTrue(checkboxSelected);
 
-        Assert.assertEquals(driver.findElements(By.xpath("//*[@type='checkbox']")).size(), 6);
+        List<WebElement> checkBoxes = driver.findElements(By.xpath("//*[@type='checkbox']"));
+
+        for(WebElement checkbox : checkBoxes){
+            System.out.println("checkbox text "+checkbox.getAttribute("name"));
+        }
+
+       // Assert.assertEquals().size(), 6);
 
 
 
@@ -76,8 +90,12 @@ public class CheckBoxAndCalendar {
 
         System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 
+
+
+
         driver.close();
         driver.quit();
+
 
     }
 }
