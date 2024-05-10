@@ -20,6 +20,12 @@
             <artifactId>testng</artifactId>
             <version>7.10.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/de.openkeyword/autoit -->
+        <dependency>
+            <groupId>de.openkeyword</groupId>
+            <artifactId>autoit</artifactId>
+            <version>0.0.15</version>
+        </dependency>
 
     </dependencies>
 
