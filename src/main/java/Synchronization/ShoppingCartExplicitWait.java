@@ -52,10 +52,6 @@ public class ShoppingCartExplicitWait {
 
         w.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='promoInfo']")));
         System.out.println(driver.findElement(By.xpath("//*[@class='promoInfo']")).getText());
-
-
-
-
     }
 
     public static  void addItems(WebDriver driver,String[] itemsNeeded)

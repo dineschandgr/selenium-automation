@@ -27,7 +27,7 @@ public class ShoppingCartImplicitWait {
         WebDriver driver=new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        String[] itemsNeeded= {"Cucumber","Brocolli","Beetroot"};
+        List<String> itemsNeeded = Arrays.asList("Cucumber","Brocolli","Beetroot");
 
         driver.get("https://rahulshettyacademy.com/seleniumPractise/");
 
@@ -38,10 +38,10 @@ public class ShoppingCartImplicitWait {
         driver.findElement(By.xpath("//*[@class='cart-icon']")).click();
         List<WebElement> cartItems = driver.findElements(By.xpath("//*[@class='cart-items'] //li[@class='cart-item'] //*[@class='product-remove'] "));
         System.out.println(cartItems.size());
-        //Thread.sleep(3000);
-        //remove last element in cart
-        cartItems.get(0).click();
 
+        //Thread.sleep(3000);
+        //remove first element in cart
+        cartItems.get(0).click();
 
         driver.findElement(By.xpath("//button[text() = 'PROCEED TO CHECKOUT']")).click();
 
@@ -51,12 +51,9 @@ public class ShoppingCartImplicitWait {
         driver.findElement(By.xpath("//*[@class='promoBtn']")).click();
         System.out.println(driver.findElement(By.xpath("//*[@class='promoInfo']")).getText());
 
-
-
-
     }
 
-    public static  void addItems(WebDriver driver,String[] itemsNeeded)
+    public static void addItems(WebDriver driver,List<String> itemsNeededList)
 
     {
 
@@ -70,34 +67,23 @@ public class ShoppingCartImplicitWait {
 
             //Brocolli,    1 kg
 
-            String[] name =products.get(i).getText().split("-");
+            String[] name = products.get(i).getText().split("-");
 
             String formattedName = name[0].trim();
 
             //format it to get actual vegetable name
 
-            //convert array into array list for easy search
-
             //  check whether name you extracted is present in arrayList or not-
 
-            List itemsNeededList = Arrays.asList(itemsNeeded);
-
-            if(itemsNeededList.contains(formattedName))
-
-            {
-
+            if(itemsNeededList.contains(formattedName)) {
                 j++;
 
                 //click on Add to cart
 
                 driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
 
-                if(j == itemsNeeded.length)
-
-                {
-
+                if(j == itemsNeededList.size()) {
                     break;
-
                 }
 
             }
