@@ -19,8 +19,9 @@ public class AutoSuggestiveDropdowns {
         driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 
         driver.findElement(By.id("autosuggest")).sendKeys("ind");
+        Thread.sleep(2000);
 
-        List<WebElement> optionsList = driver.findElements(By.xpath("//*[@class='ui-menu-item'] /a"));
+        List<WebElement> optionsList = driver.findElements(By.xpath("//li[@class='ui-menu-item'] /a"));
 
         for(WebElement e :  optionsList){
             if(e.getText().equalsIgnoreCase("India")){
@@ -34,15 +35,15 @@ public class AutoSuggestiveDropdowns {
 
         Thread.sleep(2000);
 
-        for(int i = 0; i < 4; i++){
+        /*for(int i = 0; i < 4; i++){
             driver.findElement(By.id("hrefIncAdt")).click();
-        }
+        }*/
 
 
-        driver.findElement(By.id("btnclosepaxoption")).click();
+       // driver.findElement(By.id("btnclosepaxoption")).click();
 
 
-        System.out.println(driver.findElement(By.id("//*[@class='ui-menu-item'] /a")).getText());
+        System.out.println("auto suggest "+driver.findElement(By.id("autosuggest")).getText());
 
     }
 }
