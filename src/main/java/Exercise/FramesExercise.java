@@ -21,7 +21,8 @@ public class FramesExercise {
 
         driver.get("https://the-internet.herokuapp.com/");
 
-        String click = Keys.chord(Keys.COMMAND, Keys.ENTER);
+        //use Keys.COMMAND for MAC
+        String click = Keys.chord(Keys.CONTROL, Keys.ENTER);
 
         driver.findElement(By.xpath("//a[text()='Nested Frames']")).sendKeys(click);
 
