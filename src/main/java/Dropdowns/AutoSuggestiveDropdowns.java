@@ -43,7 +43,8 @@ public class AutoSuggestiveDropdowns {
        // driver.findElement(By.id("btnclosepaxoption")).click();
 
 
-        System.out.println("auto suggest "+driver.findElement(By.id("autosuggest")).getText());
+        System.out.println("auto suggest text "+driver.findElement(By.id("autosuggest")).getText());
+        System.out.println("auto suggest value "+driver.findElement(By.id("autosuggest")).getAttribute("value"));
 
     }
 }
