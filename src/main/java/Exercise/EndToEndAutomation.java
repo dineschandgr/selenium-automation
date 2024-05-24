@@ -13,7 +13,7 @@ public class EndToEndAutomation {
 
 
 
-        System.setProperty("webdriver.chrome.driver", "C://work//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/dineshchandgeetharavichandran/Desktop/Dinesh/Selenium/Drivers/chromedriver");
 
         WebDriver driver =  new ChromeDriver();
 
