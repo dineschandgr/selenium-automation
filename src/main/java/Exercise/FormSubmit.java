@@ -17,13 +17,13 @@ public class FormSubmit {
         //System.setProperty("webdriver.chrome.driver", "/Users/dineshchandgeetharavichandran/Desktop/Dinesh/Selenium/Drivers/chromedriver");
 
         ChromeOptions options = new ChromeOptions();
-        WebDriver chromeDriver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         //WebDriver firefoxDriver = new ChromeDriver();
         //WebDriver edgeDriver = new EdgeDriver();
 
-        List<WebDriver> drivers = List.of(chromeDriver);
+        //List<WebDriver> drivers = List.of(chromeDriver);
 
-        for(WebDriver driver : drivers) {
+        //for(WebDriver driver : drivers) {
             driver.get("https://rahulshettyacademy.com/angularpractice/");
             //*[@type='checkbox'][1]
 
@@ -47,4 +47,4 @@ public class FormSubmit {
     }
 
 
-}
+
