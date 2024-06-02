@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 
         @BeforeClass
         public void testSetup() {
-            System.setProperty("webdriver.chrome.driver","/Users/dineshchandgeetharavichandran/Desktop/Dinesh/Selenium/Drivers/chromedriver");
+           // System.setProperty("webdriver.chrome.driver","/Users/dineshchandgeetharavichandran/Desktop/Dinesh/Selenium/Drivers/chromedriver");
             ChromeOptions options = new ChromeOptions();
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
